@@ -1,0 +1,130 @@
+.section {
+  padding: var(--space-4xl) 0;
+  background: var(--surface);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  color: var(--text-primary);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faqItem {
+  background: rgba(15, 52, 67, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.faqItem.active {
+  border-color: rgba(23, 165, 137, 0.3);
+}
+
+.question {
+  width: 100%;
+  padding: var(--space-lg) var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  transition: var(--transition-base);
+}
+
+.question:hover {
+  color: var(--secondary);
+}
+
+.answerWrapper {
+  overflow: hidden;
+}
+
+.answer {
+  padding: 0 var(--space-xl) var(--space-lg);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .container {
+    padding: 0 var(--responsive-padding);
+  }
+  
+  .title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-2xl);
+    padding: 0 var(--space-xs);
+  }
+  
+  .faqList {
+    gap: var(--space-sm);
+  }
+  
+  .faqItem {
+    border-radius: 8px;
+  }
+  
+  .question {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 1rem;
+    gap: var(--space-sm);
+  }
+  
+  .question svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  
+  .answer {
+    padding: 0 var(--space-lg) var(--space-md);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .container {
+    padding: 0 var(--responsive-padding);
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .question {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.95rem;
+  }
+  
+  .answer {
+    padding: 0 var(--space-md) var(--space-sm);
+    font-size: 0.875rem;
+  }
+} 

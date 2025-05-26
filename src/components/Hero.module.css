@@ -1,0 +1,344 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: var(--header-height);
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.heroImage.loaded {
+  opacity: 1;
+}
+
+.imagePlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--background) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.imagePlaceholder::before {
+  content: '';
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--secondary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.backgroundOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: -1;
+}
+
+/* Subtle ambient glow instead of geometric particles */
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(201, 48, 44, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: var(--space-xl);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle at center, rgba(201, 48, 44, 0.05) 0%, transparent 70%);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.highlight {
+  position: relative;
+  color: var(--secondary);
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--secondary);
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: underlineReveal 1s ease-out 1s forwards;
+}
+
+@keyframes underlineReveal {
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-2xl);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  background: linear-gradient(135deg, var(--secondary) 0%, #e63946 100%);
+  color: var(--background);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 48, 44, 0.3);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--space-2xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.scrollMouse {
+  width: 28px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.scrollWheel {
+  width: 4px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+  }
+}
+
+.scrollText {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) - 10px);
+  }
+  
+  .ambientGlow {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .title {
+    margin-bottom: var(--space-lg);
+    font-size: clamp(2rem, 7vw, 3rem);
+    padding: 0 var(--space-xs);
+  }
+  
+  .title::before {
+    display: none;
+  }
+  
+  .subtitle {
+    margin-bottom: var(--space-xl);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    padding: 0 var(--space-xs);
+    line-height: 1.6;
+  }
+  
+  .container {
+    padding: 0 var(--responsive-padding);
+  }
+  
+  .ctaButton {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .scrollIndicator {
+    bottom: var(--space-xl);
+  }
+  
+  .scrollMouse {
+    width: 24px;
+    height: 40px;
+  }
+  
+  .scrollText {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: calc(100vh - 20px);
+  }
+  
+  .title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .ctaButton {
+    font-size: 0.9rem;
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+/* Fix for small landscape phones */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+  }
+  
+  .content {
+    padding: var(--space-md) 0;
+  }
+  
+  .scrollIndicator {
+    display: none;
+  }
+} 

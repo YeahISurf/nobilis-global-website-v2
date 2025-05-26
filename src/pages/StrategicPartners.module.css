@@ -1,0 +1,361 @@
+/* Strategic Partners Page Styles */
+.partnersPage {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text-primary);
+  padding-top: var(--header-height);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--background) 0%, var(--surface) 50%, var(--background) 100%);
+  color: var(--text-primary);
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2317a589' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+}
+
+.heroSubtitle {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-style: italic;
+  color: var(--secondary);
+  font-weight: 300;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+/* Partners Section */
+.partnersSection {
+  padding: var(--space-4xl) 0;
+  background: var(--surface);
+}
+
+.partnersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  margin-top: var(--space-2xl);
+}
+
+/* Partner Card */
+.partnerCard {
+  background: rgba(15, 52, 67, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(23, 165, 137, 0.2);
+  border-radius: 20px;
+  padding: var(--space-2xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-base);
+  display: flex;
+  gap: var(--space-2xl);
+  align-items: flex-start;
+}
+
+.partnerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(23, 165, 137, 0.1);
+  border-color: rgba(23, 165, 137, 0.4);
+}
+
+/* Partner Logo */
+.partnerLogoContainer {
+  flex-shrink: 0;
+}
+
+.placeholderLogo {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--turquoise) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(23, 165, 137, 0.3);
+  box-shadow: 0 8px 25px rgba(23, 165, 137, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholderLogo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  border-radius: 16px;
+}
+
+.placeholderText {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 1px;
+}
+
+/* Partner Content */
+.partnerContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.partnerName {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.partnerLocation {
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.partnerLocation::before {
+  content: '📍';
+  font-size: 0.9rem;
+}
+
+.partnerDescription {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+/* Partner Actions */
+.partnerActions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.visitButton {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-base);
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(23, 165, 137, 0.2);
+}
+
+.visitButton:hover {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+  box-shadow: 0 6px 20px rgba(23, 165, 137, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Benefits Section */
+.benefitsSection {
+  padding: var(--space-4xl) 0;
+  background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+  border-top: 1px solid var(--border);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.benefitCard {
+  background: rgba(15, 52, 67, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(23, 165, 137, 0.2);
+  border-radius: 16px;
+  padding: var(--space-xl);
+  text-align: center;
+  transition: var(--transition-base);
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(23, 165, 137, 0.1);
+  border-color: rgba(23, 165, 137, 0.4);
+}
+
+.benefitCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.benefitCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .partnerCard {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-xl);
+  }
+  
+  .placeholderLogo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  
+  .placeholderText {
+    font-size: 1.2rem;
+  }
+  
+  .partnersGrid {
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .partnersPage {
+    padding-top: 60px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .partnersSection,
+  .benefitsSection {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .partnerCard {
+    padding: var(--space-xl);
+  }
+  
+  .partnerName {
+    font-size: 1.6rem;
+  }
+  
+  .partnerLocation {
+    font-size: 1rem;
+  }
+  
+  .partnerDescription {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+  
+  .placeholderLogo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .placeholderText {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 var(--space-lg);
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .partnersSection,
+  .benefitsSection {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .partnerCard {
+    padding: var(--space-lg);
+  }
+  
+  .partnerName {
+    font-size: 1.4rem;
+  }
+  
+  .partnerDescription {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .partnerActions {
+    justify-content: center;
+  }
+  
+  .visitButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+} 
