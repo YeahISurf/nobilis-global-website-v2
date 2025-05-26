@@ -25,12 +25,12 @@ export const Header: React.FC<HeaderProps> = ({ onContactClick }) => {
   }, [isScrolled]);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number | undefined;
     const throttledScrollHandler = () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
-      timeoutId = setTimeout(handleScroll, 10);
+      timeoutId = window.setTimeout(handleScroll, 10);
     };
 
     window.addEventListener('scroll', throttledScrollHandler, { passive: true });

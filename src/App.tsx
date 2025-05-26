@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage, About, Services, Team, StrategicPartners, ContactUs } from './pages';
 import { trackWebVitals, sendPerformanceMetrics, optimizeImageLoading, addResourceHints } from './utils/performance';

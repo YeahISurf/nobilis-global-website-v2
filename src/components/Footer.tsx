@@ -5,7 +5,6 @@ import {
   MapPin, 
   Clock, 
   Phone,
-  ChevronRight,
   Linkedin,
   Twitter,
   Facebook,

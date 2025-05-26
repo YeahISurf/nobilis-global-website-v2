@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Shield, Award, TrendingUp, Users, Globe, Star } from 'lucide-react';
+import { Shield, Award, TrendingUp, Users, Globe } from 'lucide-react';
 import styles from './WhyChooseUs.module.css';
 
 interface StatProps {

@@ -151,7 +151,7 @@ export const addResourceHints = () => {
 // Performance analytics (simple implementation)
 export const sendPerformanceMetrics = (metrics: PerformanceMetrics) => {
   // In a real app, you'd send this to your analytics service
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.log('Performance Metrics:', {
       FCP: metrics.fcp ? `${Math.round(metrics.fcp)}ms` : 'N/A',
       LCP: metrics.lcp ? `${Math.round(metrics.lcp)}ms` : 'N/A',
